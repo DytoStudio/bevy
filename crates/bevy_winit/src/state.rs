@@ -406,6 +406,7 @@ impl ApplicationHandler<WinitUserEvent> for WinitAppRunnerState {
                         }
                     },
                     WindowEvent::ModifiersChanged(modifiers) => {
+                        bevy_log::info!("Modifiers changed: {:?}", modifiers);
                         self.bevy_window_events
                             .send(BevyWindowEvent::ModifiersChanged(
                                 converters::convert_modifiers(modifiers),
